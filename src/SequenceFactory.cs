@@ -21,6 +21,11 @@ namespace SequenceLibrary
 		{
 			return new SmapSequence (f, s);
 		}
+		
+		public static Sequence Rand (Random gen, Int32 max = Int32.MaxValue)
+		{
+			return new RandomSequence (gen, max);
+		}
 	}
 }
 
