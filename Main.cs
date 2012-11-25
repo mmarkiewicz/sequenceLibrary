@@ -24,7 +24,7 @@ namespace SequenceLibraryTest
 		public static void Main (string[] args)
 		{
 			Random rand = new Random();
-			Sequence s1 = SequenceFactory.Snat (x => (x%5 == 0 ? rand.Next(2) : 1));
+			Sequence s1 = SequenceFactory.Snat (x => (x%4 == 0 ? rand.Next(2) : 1));
 			
 			int baseN = 3;
 			Sequence baseS = SequenceFactory.Snat (x => (x % baseN) == 0 ? rand.Next(2) : 0);
