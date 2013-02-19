@@ -1,0 +1,13 @@
+MAIN_DIR = /home/marek/SequenceLibrary
+
+LIB_DIR = $(MAIN_DIR)/lib
+BIN_DIR = $(MAIN_DIR)/bin
+
+INC_LIB = $(MAIN_DIR)
+
+CC = g++
+CFLAGS = -I$(INC_LIB) -iquote -Wall -Werror -O2 -std=c++0x
+LFLAGS = -Wall -Werror -std=c++0x
+
+AT = @
+

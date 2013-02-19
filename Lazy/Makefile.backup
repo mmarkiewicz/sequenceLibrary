@@ -1,0 +1,10 @@
+CC = g++
+CFLAGS = -Wall -O3 -c -std=c++0x
+LFLAGS = -Wall
+
+Lazy.o : Lazy.h Lazy.cpp
+	$(CC) $(CFLAGS) Lazy.cpp
+
+clean:
+	\rm *.o
+
