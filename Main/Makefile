@@ -1,26 +1,19 @@
 include ../makefile_common
 
 # File names
-LIB = $(LIB_DIR)/Sequence.so
+LIB = $(LIB_DIR)/Main.so
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
-CALLBACKS_DIR = Callbacks
-
-CALLBACKS_SRC = $(wildcard $(CALLBACKS_DIR)/*.cpp)
-CALLBACKS_OBJ = $(CALLBACKS_SRC:.cpp=.o)
-
-# Main target
-$(LIB): $(OBJ) $(CALLBACKS_OBJ)
+$(LIB): $(OBJ)
 	$(AT) echo "Linking " $@
 	$(AT) $(CC) -shared $(LFLAGS) $< -o $@
 
-# Compile rule
+# Generic rule
 %.o : %.cpp
 	$(AT) echo "Compiling " $<
 	$(AT) $(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	$(AT) echo "Deleting objects..."
-	$(AT) rm -f $(LIB) $(OBJ)
-
+	$(AT) rm -f $(OBJ) $(LIB)

@@ -1,11 +1,7 @@
-#include <functional>
-#include <utility>
+#include "Lazy/Lazy.h"
 
 namespace seq
 {
-template<typename T>
-class Lazy;
-
 template<typename T>
 class SequenceFactory;
 
@@ -17,14 +13,16 @@ class Sequence
   public:
     const T& head ();
     const Sequence<T>* tail ();
+    ~Sequence() = default;
+    Sequence (const SimpleCallback<T>& callback) { 
+      _data(callback);
+    }
 
   protected:
-    Lazy<std::pair<T,Sequence<T>*>> _data;
+    Lazy<T> _data;
 
   private:
-    //avoid constructing, Sequences can be constructed only through subclasses
     Sequence () = delete;
-    //avoid copying
     Sequence (const Sequence<T>&);
     Sequence<T>& operator=(const Sequence<T>&);
 };

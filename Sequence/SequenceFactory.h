@@ -1,4 +1,4 @@
-
+#include <functional>
 
 namespace seq
 {

@@ -6,8 +6,8 @@ BIN_DIR = $(MAIN_DIR)/bin
 INC_LIB = $(MAIN_DIR)
 
 CC = g++
-CFLAGS = -I$(INC_LIB) -iquote -Wall -Werror -O2 -std=c++0x
-LFLAGS = -Wall -Werror -std=c++0x
+CFLAGS = -I. -iquote $(INC_LIB) -Wall -Werror -O2 --std=c++0x
+LFLAGS = -Wall -Werror --std=c++0x
 
 AT = @
 

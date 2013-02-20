@@ -1,5 +1,4 @@
 #include "Sequence/Sequence.h"
-#include "Lazy/Lazy.h"
 
 namespace seq 
 {
