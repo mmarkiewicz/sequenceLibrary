@@ -1,7 +1,7 @@
 include ../makefile_common
 
 # File names
-LIB = $(LIB_DIR)/Lazy.so
+LIB = $(LIB_DIR)/libLazy.so
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 

@@ -1,8 +1,6 @@
 include makefile_common
 
-MODULES = Lazy \
-          Sequence \
-          Main
+MODULES = Main
 
 LIBS = $(MODULES:%=%.lib)
 LIBS_CLEAN = $(LIBS:.lib=.libclean)
@@ -15,7 +13,7 @@ clean: $(LIBS_CLEAN)
 
 $(EXE): $(LIBS)
 	$(AT) echo "Generating executable file"
-	$(AT) $(CC) $(LFLAGS) $(LIBS:%.lib=$(LIB_DIR)/%.so) -o $@
+	$(AT) $(CC) $(LFLAGS) $(LIBS:%.lib=$(LIB_DIR)/lib%.so) -o $@
 
 %.lib: 
 	$(AT) cd $(MAIN_DIR)/$(@:.lib=) && $(MAKE)

@@ -1,7 +1,7 @@
 include ../makefile_common
 
 # File names
-LIB = $(LIB_DIR)/Sequence.so
+LIB = $(LIB_DIR)/libSequence.so
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
@@ -22,5 +22,5 @@ $(LIB): $(OBJ) $(CALLBACKS_OBJ)
 
 clean:
 	$(AT) echo "Deleting objects..."
-	$(AT) rm -f $(LIB) $(OBJ)
+	$(AT) rm -f $(LIB) $(OBJ) $(CALLBACKS_OBJ)
 

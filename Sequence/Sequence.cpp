@@ -11,7 +11,7 @@ const T& Sequence<T>::head ()
 }
 
 template <typename T>
-const Sequence<T>* Sequence<T>::tail ()
+Sequence<T>* Sequence<T>::tail ()
 {
   auto data = _data.value();
   return data.second;

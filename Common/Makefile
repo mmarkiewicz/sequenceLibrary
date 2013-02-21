@@ -1,9 +1,11 @@
 include ../makefile_common
 
 # File names
-LIB = $(LIB_DIR)/libMain.so
+LIB = $(LIB_DIR)/Common.so
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
+
+ifneq ($(SRC), '')
 
 $(LIB): $(OBJ)
 	$(AT) echo "Linking " $@
@@ -17,3 +19,5 @@ $(LIB): $(OBJ)
 clean:
 	$(AT) echo "Deleting objects..."
 	$(AT) rm -f $(OBJ) $(LIB)
+
+endif

@@ -3,13 +3,13 @@
 namespace seq
 {
   template<typename T>
-  Lazy<T>::Lazy (const SimpleCallback<T>& construct) : 
+  Lazy<T>::Lazy (const TYPE(SimpleCallback)& construct) : 
     _construct(construct), 
     _constructed(false)
   {}
 
   template<typename T>
-  const SequencePair<T>& Lazy<T>::value()
+  const TYPE(SequencePair)& Lazy<T>::value()
   {
     if (!_constructed)
     {
