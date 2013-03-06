@@ -15,7 +15,7 @@ namespace seq
       friend class SequenceFactory<T>;
 
       public:
-      const T& head ();
+      const T head ();
       Sequence<T>* const tail ();
       ~Sequence() = default;
       Sequence (TYPE(SimpleCallback) callback) : _data(callback) {}
@@ -30,7 +30,7 @@ namespace seq
     };
 
   template <typename T>
-    const T& Sequence<T>::head ()
+    const T Sequence<T>::head ()
     {
       auto data = _data.value();
       return data.first;

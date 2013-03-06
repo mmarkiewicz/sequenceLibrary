@@ -15,8 +15,8 @@ template <typename T>
 class Type
 {
   public:
-    typedef typename std::pair<const T&, Sequence<T>*> SequencePair;
-    typedef std::function<const TYPE(SequencePair)& (void)> SimpleCallback;
+    typedef typename std::pair<const T, Sequence<T>*> SequencePair;
+    typedef std::function<TYPE(SequencePair) (void)> SimpleCallback;
 
   private:
     // This should not be constructed

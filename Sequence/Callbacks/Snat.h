@@ -12,10 +12,10 @@ namespace seq
     public:
       typedef std::function<T(T)> fType;
       TYPE(SequencePair) operator() (void);
-      Snat (const fType& f, const T& start) : _start(start), _f(f) {}
+      Snat (const fType f, const T start) : _start(start), _f(f) {}
 
     protected:
-      const T& _start;
+      const T _start;
       const fType _f;
   };
 
@@ -37,7 +37,7 @@ namespace seq
   template <typename T>
     TYPE(SequencePair) SnatP<T>::operator() (void)
     {
-      const T& val = this->_f (this->_start);
+      const T val = this->_f (this->_start);
       return std::make_pair(val, new Sequence<T>(SnatP<T>(this->_f, val)));
     }
 

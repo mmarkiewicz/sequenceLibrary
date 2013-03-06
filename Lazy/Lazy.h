@@ -16,12 +16,13 @@ namespace seq
       public:
         Lazy (TYPE(SimpleCallback) construct);
         ~Lazy () = default;
-        const TYPE(SequencePair)& value ();
+        const TYPE(SequencePair) value ();
 
       private:
         TYPE(SimpleCallback) _construct;
         bool _constructed;
-        TYPE(SequencePair)* _value;
+        T _value;
+        Sequence<T>* _tail;
 
         //avoid copying
         Lazy (const Lazy<T>&);
@@ -30,23 +31,24 @@ namespace seq
 
   template<typename T>
     Lazy<T>::Lazy (TYPE(SimpleCallback) construct) : 
-      _constructed(false)
+      _constructed(false),
+      _tail(0)
     {
       _construct = construct;
     }
 
   template<typename T>
-    const TYPE(SequencePair)& Lazy<T>::value()
+    const TYPE(SequencePair) Lazy<T>::value()
     {
       if (!_constructed)
       {
         auto val = (_construct)();
-        std::cout << val.first << std::endl;
-        _value = &val;
+        _value = val.first;
+        _tail = val.second;
         _constructed = true;
       }
 
-      return *_value;
+      return std::make_pair(_value, _tail);
     }
 }
 
